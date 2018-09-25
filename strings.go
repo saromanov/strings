@@ -2,6 +2,7 @@ package strings
 
 import (
 	"regexp"
+	"strings"
 )
 
 // IsContainsNumbers return true if input string contains numbers
@@ -27,4 +28,21 @@ func IsContainsFunc(s string, f func(string) bool) bool {
 func ExtractNumbers(s string) []string {
 	re := regexp.MustCompile("[0-9]+")
 	return re.FindAllString(s, -1)
+}
+
+// CountWords return map with count of each words
+func CountWords(s string)map[string]int {
+
+	c := map[string]int{}
+	words := strings.Split(s, " ")
+	for _, w := range words {
+		_, exist := c[w]
+		if exist {
+			c[w]++
+		} else {
+			c[w]=1
+		}
+	}
+	return c
+	
 }

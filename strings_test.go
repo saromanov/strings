@@ -36,3 +36,14 @@ func TestExtractNumbers(t *testing.T) {
 		t.Errorf("unable to extract numbers")
 	}
 }
+
+func TestCountWords(t *testing.T) {
+	countMap := CountWords("hello world")
+	w, ok := countMap["world"]
+	if !ok {
+		t.Errorf("unable to count words")
+	}
+	if w != 1 {
+		t.Errorf("unable to count words")
+	}
+}
