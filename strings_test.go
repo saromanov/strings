@@ -17,8 +17,8 @@ func TestIsContainsNumbers(t *testing.T) {
 	}
 }
 
-func TestIsContainsMap(t *testing.T) {
-	containsTest := IsContainsMap("abc", func(str string) bool {
+func TestIsContainsFunc(t *testing.T) {
+	containsTest := IsContainsFunc("abc", func(str string) bool {
 		for i, c := range str {
 			if i == 1 && c == 'b' {
 				return true
@@ -27,7 +27,7 @@ func TestIsContainsMap(t *testing.T) {
 		return false
 	})
 	if !containsTest {
-		t.Errorf("unable to apply IsContainsMap")
+		t.Errorf("unable to apply IsContainsFunc")
 	}
 }
 

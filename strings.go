@@ -7,7 +7,7 @@ import (
 // IsContainsNumbers return true if input string contains numbers
 func IsContainsNumbers(s string) bool {
 
-	return IsContainsMap(s, func(str string) bool {
+	return IsContainsFunc(s, func(str string) bool {
 		for _, i := range s {
 			if i >= '0' && i < '9' {
 				return true
@@ -19,7 +19,7 @@ func IsContainsNumbers(s string) bool {
 
 // IsContainsMap returns true if defined method
 // contains target string
-func IsContainsMap(s string, f func(string) bool) bool {
+func IsContainsFunc(s string, f func(string) bool) bool {
 	return f(s)
 }
 
