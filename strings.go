@@ -2,6 +2,7 @@ package strings
 
 import (
 	"regexp"
+	"sort"
 	"strings"
 )
 
@@ -31,7 +32,7 @@ func ExtractNumbers(s string) []string {
 }
 
 // CountWords return map with count of each words
-func CountWords(s string)map[string]int {
+func CountWords(s string) map[string]int {
 
 	c := map[string]int{}
 	words := strings.Split(s, " ")
@@ -40,9 +41,23 @@ func CountWords(s string)map[string]int {
 		if exist {
 			c[w]++
 		} else {
-			c[w]=1
+			c[w] = 1
 		}
 	}
 	return c
-	
+
+}
+
+// HighestOccurredWord returns most frequent word
+func HighestOccurredWord(s string) string {
+	countMap := CountWords(s)
+	if len(countMap) == 0 {
+		return ""
+	}
+	kv := Kvs{}
+	for k, v := range countMap {
+		kv = append(kv, KV{k, v})
+	}
+	sort.Sort(kv)
+	return kv[len(kv)-1].Key
 }

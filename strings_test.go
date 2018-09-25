@@ -47,3 +47,10 @@ func TestCountWords(t *testing.T) {
 		t.Errorf("unable to count words")
 	}
 }
+
+func TestHighestOccurredWord(t *testing.T) {
+	word := HighestOccurredWord("hello world world foobar world")
+	if word != "world" {
+		t.Errorf("unable to get highest occurred word")
+	}
+}
