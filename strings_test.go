@@ -16,3 +16,23 @@ func TestIsContainsNumbers(t *testing.T) {
 		t.Errorf("string contains numbers")
 	}
 }
+
+func TestIsContainsMap(t *testing.T) {
+	containsTest := IsContainsMap("abc", func(str string) bool {
+		for i, c := range str {
+			if i == 1 && c == 'b' {
+				return true
+			}
+		}
+		return false
+	})
+	if !containsTest {
+		t.Errorf("unable to apply IsContainsMap")
+	}
+}
+
+func TestExtractNumbers(t *testing.T) {
+	if len(ExtractNumbers("254")) == 0 {
+		t.Errorf("unable to extract numbers")
+	}
+}
