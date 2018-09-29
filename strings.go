@@ -61,3 +61,14 @@ func HighestOccurredWord(s string) string {
 	sort.Sort(kv)
 	return kv[len(kv)-1].Key
 }
+
+// RemoveAllNonAlphanumeric gets only nums and alphabetic symbols
+// on string
+func RemoveAllNonAlphanumeric(s string) (string, error) {
+
+	reg, err := regexp.Compile("[^a-zA-Z0-9]+")
+	if err != nil {
+		return "", err
+	}
+	return reg.ReplaceAllString(s, ""), nil
+}

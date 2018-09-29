@@ -1,6 +1,9 @@
 package strings
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestIsContainsNumbers(t *testing.T) {
 	if IsContainsNumbers("abc") {
@@ -52,5 +55,16 @@ func TestHighestOccurredWord(t *testing.T) {
 	word := HighestOccurredWord("hello world world foobar world")
 	if word != "world" {
 		t.Errorf("unable to get highest occurred word")
+	}
+}
+
+func TestRemoveAllNonAlphanumeric(t *testing.T) {
+	s, err := RemoveAllNonAlphanumeric("Yeah!")
+	if err != nil {
+		t.Errorf(fmt.Sprintf("%v", err))
+	}
+
+	if s != "Yeah" {
+		t.Errorf("unable to remove non alphanumeric symbols")
 	}
 }
