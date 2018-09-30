@@ -76,3 +76,12 @@ func TestRemoveAllNonAlphanumeric(t *testing.T) {
 		t.Errorf("unable to remove non alphanumeric symbols")
 	}
 }
+
+func TestValidateEmail(t *testing.T) {
+	if !ValidateEmail("123@mail.ru") {
+		t.Errorf("unable to validate email")
+	}
+	if ValidateEmail("123@@mail.ru") {
+		t.Errorf("unable to validate email")
+	}
+}

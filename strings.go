@@ -72,3 +72,9 @@ func RemoveAllNonAlphanumeric(s string) (string, error) {
 	}
 	return reg.ReplaceAllString(s, ""), nil
 }
+
+// ValidateEmail provides validation of email address
+func ValidateEmail(s string) bool {
+	re := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
+	return re.MatchString(s)
+}
