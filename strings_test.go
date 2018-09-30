@@ -67,4 +67,12 @@ func TestRemoveAllNonAlphanumeric(t *testing.T) {
 	if s != "Yeah" {
 		t.Errorf("unable to remove non alphanumeric symbols")
 	}
+
+	s2, err := RemoveAllNonAlphanumeric("Yeah")
+	if err != nil {
+		t.Errorf("unable to remove non alphanumeric symbols")
+	}
+	if s2 != "Yeah" {
+		t.Errorf("unable to remove non alphanumeric symbols")
+	}
 }
