@@ -1,9 +1,11 @@
 package strings
 
 import (
+	"reflect"
 	"regexp"
 	"sort"
 	"strings"
+	"unsafe"
 )
 
 // IsContainsNumbers return true if input string contains numbers
@@ -77,4 +79,13 @@ func RemoveAllNonAlphanumeric(s string) (string, error) {
 func ValidateEmail(s string) bool {
 	re := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 	return re.MatchString(s)
+}
+
+// ComparePtr provides comparation of two strings by pointers
+func ComparePtr(s1, s2 string) bool {
+	return comparePtr(s1) == comparePtr(s2)
+}
+
+func comparePtr(s string) *reflect.StringHeader {
+	return (*reflect.StringHeader)(unsafe.Pointer(&s))
 }

@@ -85,3 +85,11 @@ func TestValidateEmail(t *testing.T) {
 		t.Errorf("unable to validate email")
 	}
 }
+
+func TestComparePtr(t *testing.T) {
+	s1 := "foo"
+	s2 := s1[:1]
+	if !ComparePtr(s1, s2) {
+		t.Errorf("error on string compare")
+	}
+}
