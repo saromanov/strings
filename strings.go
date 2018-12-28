@@ -82,6 +82,7 @@ func ValidateEmail(s string) bool {
 }
 
 // ComparePtr provides comparation of two strings by pointers
+// Its return true if two strings have a same pointer
 func ComparePtr(s1, s2 string) bool {
 	return comparePtr(s1) == comparePtr(s2)
 }
