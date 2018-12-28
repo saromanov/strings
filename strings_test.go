@@ -87,8 +87,8 @@ func TestValidateEmail(t *testing.T) {
 }
 
 func TestComparePtr(t *testing.T) {
-	s1 := "foo"
-	s2 := s1[:1]
+	s1 := "1234"
+	s2 := s1
 	if !ComparePtr(s1, s2) {
 		t.Errorf("error on string compare")
 	}

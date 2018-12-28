@@ -86,6 +86,6 @@ func ComparePtr(s1, s2 string) bool {
 	return comparePtr(s1) == comparePtr(s2)
 }
 
-func comparePtr(s string) *reflect.StringHeader {
-	return (*reflect.StringHeader)(unsafe.Pointer(&s))
+func comparePtr(s string) uintptr {
+	return (*reflect.StringHeader)(unsafe.Pointer(&s)).Data
 }
